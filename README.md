@@ -6,8 +6,12 @@ The energy consumption prediction model uses satellite images of structures (bui
 
 ## Roadmap:
 
-July 2020 - all of Kenya
-XXXX 2020 - additional contries in Africa. 
+Roadmap 
+
+* July 2020 - v0.5 Beta users only. Please contact us to join the beta testing group. 
+* Sept 2020 - v1.0 Soft launch. Available to anyone upon request. This release will include data for all of Kenya. 
+
+To join the beta testing group, please contact us at info@eguide.io
 
 ## Navigating this repository / Table of Contents
 
