@@ -1,4 +1,4 @@
-# eguide-energy-api
+# eguide-consumption-api
 
 This is a public API for eGUIDE's energy models, currently providing eGUIDE's energy consumption prediction model. 
 
