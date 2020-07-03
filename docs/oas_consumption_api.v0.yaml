@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  version: 0.0.2
+  title: Consumption Prediction API
+  description: 'The Consumption Prediction API enables users to access critical consumption prediction data to be used for purposes such system planning for electricity infrastructure. The API is organized based on the REST architecture  and returns responses in JSON /xml format. '
+  termsOfService: 'https://eguide.io/#terms-of-use/'
+  contact:
+    name: e-GUIDE Initiative
+    url: 'https://eguide.io/#contact'
+    email: info@eguide.io
+  license:
+    name: Consumption Prediction License
+    url: 'https://eguide.io/#license'
+servers:
+  - url: 'https://api.eguide.io/v0'
+    description: eGUIDE Energy API (Beta)
+paths:
+  /prediction:
+    get:
+      tags:
+        - Consumption Predictions
+      description: Obtain consumption predictions for the specified point or polygon
+      operationId: get-household-prediction
+      parameters:
+        - name: aoi
+          in: query
+          description: AOI String -- use POLYGON or POINT
+          required: true
+          schema:
+            type: string
+            items:
+              type: number
+          examples:
+            point_1:
+              value: POINT(35.8843 4.0665)
+            point_2:
+              value: '35.8843, 4.0665'
+            polygon_1:
+              value: 'POLYGON(35.8800 4.0600, 35.8900 4.0665, 35.8800 4.0600)'
+        - name: resolution
+          description: 'resolution: 250 or 1000'
+          schema:
+            type: integer
+          in: query
+          examples:
+            resolution_1:
+              value: 250
+        - name: detail
+          description: 'Allowed values: {summary, detail}'
+          schema:
+            type: string
+          in: query
+          examples:
+            detail_1:
+              value: summary
+      responses:
+        '200':
+          description: Successful query
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+components:
+  schemas: {}
+  securitySchemes:
+    apikey:
+      name: "User's API Key"
+      type: apiKey
+      in: header
+tags:
+  - name: Consumption Predictions
+    description: Get household consumption prediction details
+security:
+  - apikey: []
