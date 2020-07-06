@@ -55,7 +55,35 @@ paths:
               value: summary
       responses:
         '200':
-          description: "{\n    \"data\": {\n        \"number_of_cells\": 1,\n        \"resolution\": null,\n        \"summary_only\": true\n    },\n    \"data_summary\": {\n        \"classA_pooled_prob_mean\": 0.67,\n        \"classA_pooled_prob_std_dev\": 0.1,\n        \"classA_total_count\": 5,\n        \"classB_pooled_prob_mean\": NaN,\n        \"classB_pooled_prob_std_dev\": NaN,\n        \"classB_total_count\": 0\n    },\n    \"model_metadata\": {\n        \"description\": \"Model output generated for project Eguide, \\nIncludes whole of Kenya\\nSamples only, not intended for production\\n\",\n        \"model_output_id\": 1,\n        \"model_run_date\": \"2020-05-30\",\n        \"model_version\": \"0.1.1\"\n    },\n    \"request\": {\n        \"AOI_coords\": \"'POINT(35.8843 4.0665)'\",\n        \"AOI_type\": \"latlong\",\n        \"requested_resolution\": null\n    }\n}"
+          description: 'successful '
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      number_of_cells: 26
+                      resolution: null
+                      summary_only: true
+                    data_summary:
+                      classA_pooled_prob_mean: 0.67
+                      classA_pooled_prob_std_dev: 0.08
+                      classA_total_count: 136
+                      classB_pooled_prob_mean: 0.66
+                      classB_pooled_prob_std_dev: 0.07
+                      classB_total_count: 179
+                    model_metadata:
+                      description: "Model output generated for project Eguide, \nIncludes whole of Kenya\nSamples only, not intended for production\n"
+                      model_output_id: 1
+                      model_run_date: '2020-05-30'
+                      model_version: 0.1.1
+                    request:
+                      AOI_coords: "'POLYGON((37.58436928328017 2.505196287490957, 37.58349266701641 2.50483389635894, 37.58243468187049 2.50015300189687, 37.58031871157866 2.498703431192026, 37.57693315911171 2.496680069407397, 37.57463581993773 2.496498872677634, 37.57309418443938 2.49773704983297, 37.57106889858863 2.499367817963794, 37.56961794753137 2.503112537112806, 37.56992022900163 2.50679684712427, 37.57221756817562 2.509212782485751, 37.57448467920259 2.511477717832856, 37.5765704213474 2.51165891249102, 37.57856547905113 2.510813337204571, 37.58149760931268 2.510179155380619, 37.58385540478073 2.508518201526364, 37.58436928328017 2.505196287490957))'"
+                      AOI_type: polygon
+                      requested_resolution: null
+          headers: {}
         '400':
           description: Bad Request
         '401':
