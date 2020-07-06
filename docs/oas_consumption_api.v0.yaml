@@ -45,17 +45,17 @@ paths:
           examples:
             resolution_1:
               value: 250
-        - name: detail
-          description: 'Allowed values: {summary, detail}'
+        - name: summary
+          description: 'Allowed values: {true, false}'
           schema:
-            type: string
+            type: boolean
           in: query
           examples:
             detail_1:
               value: summary
       responses:
         '200':
-          description: Successful query
+          description: "{\n    \"data\": {\n        \"number_of_cells\": 1,\n        \"resolution\": null,\n        \"summary_only\": true\n    },\n    \"data_summary\": {\n        \"classA_pooled_prob_mean\": 0.67,\n        \"classA_pooled_prob_std_dev\": 0.1,\n        \"classA_total_count\": 5,\n        \"classB_pooled_prob_mean\": NaN,\n        \"classB_pooled_prob_std_dev\": NaN,\n        \"classB_total_count\": 0\n    },\n    \"model_metadata\": {\n        \"description\": \"Model output generated for project Eguide, \\nIncludes whole of Kenya\\nSamples only, not intended for production\\n\",\n        \"model_output_id\": 1,\n        \"model_run_date\": \"2020-05-30\",\n        \"model_version\": \"0.1.1\"\n    },\n    \"request\": {\n        \"AOI_coords\": \"'POINT(35.8843 4.0665)'\",\n        \"AOI_type\": \"latlong\",\n        \"requested_resolution\": null\n    }\n}"
         '400':
           description: Bad Request
         '401':
