@@ -98,8 +98,27 @@ paths:
                     Message: 'BadRequestError: Shape Coordinates missing'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1:
+                  value:
+                    message: Forbidden
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1:
+                  value:
+                    Code: NotFoundError
+                    Message: "NotFoundError: No structures found for query aoi 'POINT(35.0 4.0665)'"
         '500':
           description: Internal Server Error
 components:
