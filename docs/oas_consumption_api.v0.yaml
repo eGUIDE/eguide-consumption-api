@@ -30,29 +30,25 @@ paths:
             type: string
             items:
               type: number
-          examples:
-            point_1:
-              value: POINT(35.8843 4.0665)
-            point_2:
-              value: '35.8843, 4.0665'
-            polygon_1:
-              value: 'POLYGON(35.8800 4.0600, 35.8900 4.0665, 35.8800 4.0600)'
+            example: POINT(35.8843 4.0665)
         - name: resolution
-          description: 'resolution: 250 or 1000'
+          description: '{None, 250} '
           schema:
             type: integer
+            example: 250
           in: query
-          examples:
-            resolution_1:
-              value: 250
-        - name: summary
-          description: 'Allowed values: {true, false}'
+        - name: summary_only
+          description: 'If TRUE, omits cell-level data in response.'
           schema:
             type: boolean
+            example: 'False'
           in: query
-          examples:
-            detail_1:
-              value: summary
+        - schema:
+            type: string
+            example: MYAPIKEY123456
+          in: header
+          name: x-api-key
+          required: true
       responses:
         '200':
           description: 'successful '
@@ -121,13 +117,10 @@ paths:
                     Message: "NotFoundError: No structures found for query aoi 'POINT(35.0 4.0665)'"
         '500':
           description: Internal Server Error
+      summary: ''
 components:
   schemas: {}
-  securitySchemes:
-    x-api-key:
-      name: "User's API Key"
-      type: apiKey
-      in: header
+  securitySchemes: {}
 tags:
   - name: Consumption Predictions
     description: Get household consumption prediction details
