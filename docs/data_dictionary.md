@@ -51,23 +51,24 @@ data:
 
 Field | description 
 -------|--------
- number_of_cells | Lorem Ipsum
- resolution | Lorem Ipsum
- summary_only | Lorem Ipsum
- data_array | Lorem Ipsum
+ number_of_cells | Total number of cells that fit in the requested AOI boundary. Minimum cells is 1, for example, for a POINT AOI. 
+ resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. 
+ summary_only | TRUE or FALSE. If true, the data array is not included in the API response.
+ data_array | Data for each cell in the API response. 
 
 #### Data Array (`data:data_array`)
 
-The data array provides the following fields for each cell. 
+The data array provides model predictions for each cell. 
 
 Note that if `summary_only` is `True`, the data array is not included in the API response.
 
 Field | description 
 -------|--------
- cell_bbox | Lorem Ipsum
- cell_id | Lorem Ipsum
- resolution | Lorem Ipsum
-
+ cell_bbox | The bounding box for the cell 
+ cell_id | unique id of the cell
+ model_output_id | unique id of the model run that produced the data contained in the cell
+cell_data | model predictions for each cell. See below. 
+ 
 
 #### Cell-Level Data (`data:data_array:cell_data`)
 
@@ -120,20 +121,20 @@ Not a Number (NaN) values in the data are NOT equivalent to zero values.
             {
                 "cell_bbox": "POLYGON((35.8829166666667 4.06736111111111,35.8854166666667 4.06736111111111,35.8854166666667 4.06486111111111,35.8829166666667 4.06486111111111,35.8829166666667 4.06736111111111))",
                 "cell_id": null,
-                "data": {
+                "model_output_id": 1,
+                "cell_data": {
                     "classA_count": 5.0,
                     "classA_prob_mean": 0.67,
                     "classA_prob_std": 0.1,
                     "classB_count": 0.0,
                     "classB_prob_mean": NaN,
                     "classB_prob_std": NaN
-                },
-                "model_output_id": 1
+                }
             }
         ],
         "number_of_cells": 1,
-        "resolution": null,
-        "summary_only": null
+        "resolution": 250,
+        "summary_only": False
     },
     "data_summary": {
         "classA_pooled_prob_mean": 0.67,
@@ -152,7 +153,7 @@ Not a Number (NaN) values in the data are NOT equivalent to zero values.
     "request": {
         "AOI_coords": "'POINT(35.8843 4.0665)'",
         "AOI_type": "latlong",
-        "requested_resolution": null
+        "requested_resolution": 250
     }
 }
 
