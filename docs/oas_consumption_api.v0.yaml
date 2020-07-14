@@ -57,7 +57,7 @@ paths:
               schema:
                 type: object
               examples:
-                example-1:
+                Polygon AOI summary-only:
                   value:
                     data:
                       number_of_cells: 26
