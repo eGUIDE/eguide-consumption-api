@@ -77,11 +77,7 @@ For each cell, the following data is provided. This information indicates the mo
 Field | description 
 -------|--------
  classA_count | In the cell, count of structures predicted as belonging to class A 
- classA_prob_mean | The mean of prediction probability scores for class A in the cell.
- classA_prob_std | The standard deviation of prediction probability scores for class A in the cell.
  classB_count | In the cell, count of structures predicted as belonging to class B 
- classB_prob_mean | The mean of prediction probability scores for class B in the cell.
- classB_prob_std | The standard deviation of prediction probability scores for class B in the cell.
 
 See section on "Interpreting the probability figures" for more information on the probability data. 
  
@@ -124,11 +120,7 @@ Not a Number (NaN) values in the data are NOT equivalent to zero values.
                 "model_output_id": 1,
                 "cell_data": {
                     "classA_count": 5.0,
-                    "classA_prob_mean": 0.67,
-                    "classA_prob_std": 0.1,
                     "classB_count": 0.0,
-                    "classB_prob_mean": NaN,
-                    "classB_prob_std": NaN
                 }
             }
         ],
