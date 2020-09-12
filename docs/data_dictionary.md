@@ -101,9 +101,9 @@ See section on "Interpreting the probability figures" for more information on th
 Each prediction is provided a prediction probability between 0 and 1. A probability of 1 means that the model is 100% confident that the structure belongs in the given class. A probability of 0.6 means that the model is 60% confident. 
 
 These predictions are aggregated per cell. In a given cell the model will provide the following information: 
- * Total count of structures predicted, for each class
- * Mean of all the probability scores of the structures in the cell, for each class
- * Standard deviation of all the probability scores of the structures in the cell, for each class
+ * Total count of structures predicted, for each class.
+ * Mean of all the probability scores of the structures in the cell, for each class.
+ * Standard deviation of all the probability scores of the structures in the cell, for each class.
 
 ## NaN values
 Not a Number (NaN) values in the data are NOT equivalent to zero values. 
@@ -137,7 +137,7 @@ Not a Number (NaN) values in the data are NOT equivalent to zero values.
         "classB_total_count": 0
     },
     "model_metadata": {
-        "description": "Model output generated for project Eguide, \nIncludes whole of Kenya\nSamples only, not intended for production\n",
+        "description": "Model output generated for project Eguide, Includes whole of Kenya Samples only, not intended for production",
         "model_output_id": 1,
         "model_run_date": "2020-05-30",
         "model_version": "0.1.1"
