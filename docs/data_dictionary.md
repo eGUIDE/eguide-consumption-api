@@ -158,10 +158,10 @@ summary_only flag set to ***FALSE***
     "data_summary": {
         "classA_pooled_prob_mean": 0.63,
         "classA_pooled_prob_std_dev": 0.09,
-        "classA_total_count": 37,
+        "classA_total_count": 21,
         "classB_pooled_prob_mean": 0.58,
         "classB_pooled_prob_std_dev": 0.07,
-        "classB_total_count": 24
+        "classB_total_count": 10
     },
     "model_metadata": {
         "description": "Model output generated for EGUIDE API Includes 1 country Intended for production",
