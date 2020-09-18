@@ -41,7 +41,7 @@ paths:
           description: 'If TRUE, omits cell-level data in response.'
           schema:
             type: boolean
-            example: 'False'
+            example: False
           in: query
         - schema:
             type: string
