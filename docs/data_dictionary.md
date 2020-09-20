@@ -52,7 +52,7 @@ data:
 Field | description 
 -------|--------
  number_of_cells | Total number of cells that fit in the requested AOI boundary. Minimum cells is 1, for example, for a POINT AOI. 
- resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. 
+ resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. Available resolutions are: [250, 500, 1000] square meters.
  summary_only | TRUE or FALSE. If true, the data array is not included in the API response.
  data_array | Data for each cell in the API response. 
 
