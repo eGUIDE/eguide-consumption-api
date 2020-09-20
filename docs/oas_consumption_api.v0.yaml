@@ -24,7 +24,7 @@ paths:
       parameters:
         - name: aoi
           in: query
-          description: AOI String -- use POLYGON or POINT
+          description: "AOI String -- use POLYGON or POINT \n--Using CRS EPSG:4326"
           required: true
           schema:
             type: string
@@ -41,7 +41,7 @@ paths:
           description: 'If TRUE, omits cell-level data in response.'
           schema:
             type: boolean
-            example: 'False'
+            example: False
           in: query
         - schema:
             type: string

@@ -52,7 +52,7 @@ data:
 Field | description 
 -------|--------
  number_of_cells | Total number of cells that fit in the requested AOI boundary. Minimum cells is 1, for example, for a POINT AOI. 
- resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. 
+ resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. Available resolutions are: [250, 500, 1000] square meters.
  summary_only | TRUE or FALSE. If true, the data array is not included in the API response.
  data_array | Data for each cell in the API response. 
 
@@ -101,52 +101,113 @@ See section on "Interpreting the probability figures" for more information on th
 Each prediction is provided a prediction probability between 0 and 1. A probability of 1 means that the model is 100% confident that the structure belongs in the given class. A probability of 0.6 means that the model is 60% confident. 
 
 These predictions are aggregated per cell. In a given cell the model will provide the following information: 
- * Total count of structures predicted, for each class
- * Mean of all the probability scores of the structures in the cell, for each class
- * Standard deviation of all the probability scores of the structures in the cell, for each class
+ * Total count of structures predicted, for each class.
+ * Mean of all the probability scores of the structures in the cell, for each class.
+ * Standard deviation of all the probability scores of the structures in the cell, for each class.
 
 ## NaN values
 Not a Number (NaN) values in the data are NOT equivalent to zero values. 
 
-## Example JSON response
-
+## Example JSON responses
+summary_only flag set to ***FALSE***
 ```
 {
     "data": {
         "data_array": [
             {
-                "cell_bbox": "POLYGON((35.8829166666667 4.06736111111111,35.8854166666667 4.06736111111111,35.8854166666667 4.06486111111111,35.8829166666667 4.06486111111111,35.8829166666667 4.06736111111111))",
-                "cell_id": null,
-                "model_output_id": 1,
+                "cell_bbox": "POLYGON((35.8824639178345 4.06722456781251,35.8847096957719 4.06722456781251,35.8847096957719 4.06497878987503,35.8824639178345 4.06497878987503,35.8824639178345 4.06722456781251))",
                 "cell_data": {
                     "classA_count": 5.0,
-                    "classB_count": 0.0,
-                }
+                    "classB_count": 0.0
+                },
+                "cell_id": 879,
+                "model_output_id": 1
+            },
+            {
+                "cell_bbox": "POLYGON((35.8779723619595 4.06497878987503,35.880218139897 4.06497878987503,35.880218139897 4.06273301193756,35.8779723619595 4.06273301193756,35.8779723619595 4.06497878987503))",
+                "cell_data": {
+                    "classA_count": 0.0,
+                    "classB_count": 1.0
+                },
+                "cell_id": 880,
+                "model_output_id": 1
+            },
+            {
+                "cell_bbox": "POLYGON((35.880218139897 4.06497878987503,35.8824639178345 4.06497878987503,35.8824639178345 4.06273301193756,35.880218139897 4.06273301193756,35.880218139897 4.06497878987503))",
+                "cell_data": {
+                    "classA_count": 7.0,
+                    "classB_count": 2.0
+                },
+                "cell_id": 881,
+                "model_output_id": 1
+            },
+            {
+                "cell_bbox": "POLYGON((35.8824639178345 4.06497878987503,35.8847096957719 4.06497878987503,35.8847096957719 4.06273301193756,35.8824639178345 4.06273301193756,35.8824639178345 4.06497878987503))",
+                "cell_data": {
+                    "classA_count": 9.0,
+                    "classB_count": 7.0
+                },
+                "cell_id": 882,
+                "model_output_id": 1
             }
+    
         ],
-        "number_of_cells": 1,
-        "resolution": 250,
-        "summary_only": False
+        "number_of_cells": 4,
+        "summary_only": false
     },
     "data_summary": {
-        "classA_pooled_prob_mean": 0.67,
-        "classA_pooled_prob_std_dev": 0.1,
-        "classA_total_count": 5,
-        "classB_pooled_prob_mean": NaN,
-        "classB_pooled_prob_std_dev": NaN,
-        "classB_total_count": 0
+        "classA_pooled_prob_mean": 0.63,
+        "classA_pooled_prob_std_dev": 0.09,
+        "classA_total_count": 21,
+        "classB_pooled_prob_mean": 0.58,
+        "classB_pooled_prob_std_dev": 0.07,
+        "classB_total_count": 10
     },
     "model_metadata": {
-        "description": "Model output generated for project Eguide, \nIncludes whole of Kenya\nSamples only, not intended for production\n",
+        "description": "Model output generated for EGUIDE API Includes 1 country Intended for production",
         "model_output_id": 1,
-        "model_run_date": "2020-05-30",
-        "model_version": "0.1.1"
+        "model_run_date": "2020-07-23",
+        "model_version": "0.1.1",
+        "resolution (meters)": 250
     },
     "request": {
-        "AOI_coords": "'POINT(35.8843 4.0665)'",
-        "AOI_type": "latlong",
-        "requested_resolution": 250
+        "AOI_coords": "'POLYGON((35.8843 4.0665,35.8851 4.0660, 35.8857 4.0655, 35.8860 4.0619, 35.8854 4.0611, 35.8843 4.0606,35.8793 4.0613, 35.8794 4.0640, 35.8795 4.0658, 35.8810 4.0658, 35.8824 4.0658, 35.8843 4.0665 ))'",
+        "AOI_type": "polygon",
+        "other params": {},
+        "requested_resolution": 250,
+        "summary_only": false
     }
 }
+```
 
+summary_only set to ***TRUE***
+```
+{
+    "data": {
+        "number_of_cells": 9,
+        "summary_only": true
+    },
+    "data_summary": {
+        "classA_pooled_prob_mean": 0.68,
+        "classA_pooled_prob_std_dev": 0.08,
+        "classA_total_count": 30,
+        "classB_pooled_prob_mean": 0.54,
+        "classB_pooled_prob_std_dev": 0.67,
+        "classB_total_count": 17
+    },
+    "model_metadata": {
+        "description": "Model output generated for EGUIDE API Includes 1 country Intended for production",
+        "model_output_id": 1,
+        "model_run_date": "2020-07-23",
+        "model_version": "0.1.1",
+        "resolution (meters)": 250
+    },
+    "request": {
+        "AOI_coords": "'POLYGON((35.8843 4.0665,35.8851 4.0660, 35.8857 4.0655, 35.8858 4.0644, 35.8850 4.0639, 35.8860 4.0619, 35.8854 4.0611, 35.8794 4.0640, 35.8795 4.0658, 35.8810 4.0658, 35.8824 4.0658, 35.8843 4.0665 ))'",
+        "AOI_type": "polygon",
+        "other params": {},
+        "requested_resolution": 250,
+        "summary_only": true
+    }
+}
 ```
