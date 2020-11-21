@@ -22,7 +22,7 @@ paths:
     get:
       tags:
         - Consumption Predictions
-      description: Obtain consumption predictions for the specified point or polygon
+      description: 'Obtain consumption predictions for the specified point or polygon. '
       operationId: get-household-prediction
       parameters:
         - name: aoi
@@ -65,28 +65,28 @@ paths:
                 Polygon AOI summary-only:
                   value:
                     data:
-                      number_of_cells: 26
-                      resolution: null
+                      number_of_cells: 6
                       summary_only: true
                     data_summary:
-                      classA_pooled_prob_mean: 0.67
-                      classA_pooled_prob_std_dev: 0.08
-                      classA_total_count: 136
-                      classB_pooled_prob_mean: 0.66
-                      classB_pooled_prob_std_dev: 0.07
-                      classB_total_count: 179
+                      high_class_pooled_prob_mean: 0.58
+                      high_class_pooled_prob_std_dev: 0.07
+                      high_class_total_count: 20
+                      low_class_pooled_prob_mean: 0.63
+                      low_class_pooled_prob_std_dev: 0.09
+                      low_class_total_count: 36
+                      total_structure_count: 56
                     model_metadata:
-                      description: |
-                        Model output generated for project Eguide, 
-                        Includes whole of Kenya
-                        Samples only, not intended for production
+                      description: Model output generated for EGUIDE API Includes 1 country Intended for production
                       model_output_id: 1
-                      model_run_date: '2020-05-30'
+                      model_run_date: '2020-07-23'
                       model_version: 0.1.1
+                      resolution (meters): 250
                     request:
-                      AOI_coords: '''POLYGON((37.58436928328017 2.505196287490957, 37.58349266701641 2.50483389635894, 37.58243468187049 2.50015300189687, 37.58031871157866 2.498703431192026, 37.57693315911171 2.496680069407397, 37.57463581993773 2.496498872677634, 37.57309418443938 2.49773704983297, 37.57106889858863 2.499367817963794, 37.56961794753137 2.503112537112806, 37.56992022900163 2.50679684712427, 37.57221756817562 2.509212782485751, 37.57448467920259 2.511477717832856, 37.5765704213474 2.51165891249102, 37.57856547905113 2.510813337204571, 37.58149760931268 2.510179155380619, 37.58385540478073 2.508518201526364, 37.58436928328017 2.505196287490957))'''
+                      AOI_coords: '''POLYGON((35.8843 4.0665,35.8851 4.0660, 35.8843 4.0606, 35.8795 4.0658, 35.8843 4.0665 ))'''
                       AOI_type: polygon
-                      requested_resolution: null
+                      other params: {}
+                      requested_resolution: '250'
+                      summary_only: true
           headers: {}
         '400':
           description: Bad Request

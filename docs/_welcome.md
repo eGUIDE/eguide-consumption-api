@@ -1,6 +1,6 @@
 # eGUIDE Consumption API Developer Documentation
 
-eGUIDE’s energy consumption is available to the public. Currently in beta release, please contact info@eguide.io to request access to the API.
+eGUIDE’s energy consumption is available to the public. Please contact info@eguide.io to request access to the API.
 
 This API provides access to consumption prediction estimates developed from models trained with data from multiple countries. These estimates can easily be integrated into energy system planning tools thus enabling better incorporation of realistic consumption estimates and hypotheticals into electricity planning processes.
 
@@ -34,7 +34,7 @@ Thank you for taking the time to try out the API and offer your feedback and sug
  * Beta testing period will be July and August 2020
  * Please please submit bugs and requests! The more the better! 
  * Don't hesitate to contact us directly for support. 
- * First version of the API will be released in September 2020
+ * First version of the API will be released in November 2020
  * Usage and output may change during the beta period. 
 
 
