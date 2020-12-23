@@ -52,7 +52,7 @@ data:
 Field | description 
 -------|--------
  number_of_cells | Total number of cells that fit in the requested AOI boundary. Minimum cells is 1, for example, for a POINT AOI. 
- resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. Available resolutions are: [250, 500, 1000] square meters.
+ resolution | Resolution of the cell data included in the API response. Highest available resolution is 250 square meters. Depending on the size of the query, the API may use lower resolution cells. Available resolutions are: [250, 500, 1000, 10000] square meters.
  summary_only | TRUE or FALSE. If true, the data array is not included in the API response.
  data_array | Data for each cell in the API response. 
 
@@ -72,17 +72,22 @@ cell_data | model predictions for each cell. See below.
 
 #### Cell-Level Data (`data:data_array:cell_data`)
 
-For each cell, the following data is provided. This information indicates the model predictions for the given cell's boundary. The cell size is determined by the `data:resolution` parameter.
-
-For queries with sizes:
-- less than 100km², default cell size is 250m²
-- 100-1000km²,  default cell size is 500m²
-- greater than 1000km², default cell size is 1000m²
+For each cell, the following data is provided. 
 
 Field | description 
 -------|--------
  low_class_count | In the cell, count of structures predicted as belonging to low consumption class  
  high_class_count | In the cell, count of structures predicted as belonging to high consumption class  
+
+
+This information indicates the model predictions for the given cell's boundary. The cell size is determined by the `data:resolution` parameter. However, larger area queries are automatically assigned larger resolutions as described below
+
+Area size | Default resolution 
+-------|--------
+less than 100km² |  250m²
+100-1,000km² |  500m²
+1,000-10,000km² |  1,000m²
+greater than 10,000km² |  10,000m²
 
 See section on "Interpreting the probability figures" for more information on the probability data. 
  
