@@ -8,8 +8,7 @@ The eGUIDE Energy Consumption model documentation provides information about the
  * Data sets and sources
  * Model Performance
 
-Paper:
-["Power to the People: Predicting Levels of Household Electricity Consumption in Low-Access Settings." Simone Fobi, Joel Mugyenyi, Vijay Modi and Jay Taneja](https://github.com/eGUIDE/eguide-consumption-api/blob/master/docs/predicting%20household%20electricity%20consumption.pdf
+Google doc:
+[Model Documentation](https://docs.google.com/document/d/17rVR3HTGpc00XnwyGlraEdbf9N4lumi2p6VddXEHSQU/edit?usp=sharing
 )
 
-Please note this paper is still under submission.
